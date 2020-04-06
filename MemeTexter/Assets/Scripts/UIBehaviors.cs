@@ -42,6 +42,20 @@ public class UIBehaviors : MonoBehaviour
         }
     }
 
+    public void OpenSettings(Chat chat)
+    {
+        if (chat.otherPage == null)
+        {
+            GameObject newPage = (GameObject)Instantiate(Resources.Load("TestSettings"));
+            newPage.transform.SetParent(canvas.transform, false);
+            chat.otherPage = newPage;
+        }
+        else
+        {
+            chat.otherPage.SetActive(true);
+        }
+    }
+
     public void NewChat()
     {
         GameObject newChat = (GameObject)Instantiate(Resources.Load("ChatButton"));
@@ -53,4 +67,6 @@ public class UIBehaviors : MonoBehaviour
         chatsPage.SetActive(true);
         currentPage.SetActive(false);
     }
+
+
 }
