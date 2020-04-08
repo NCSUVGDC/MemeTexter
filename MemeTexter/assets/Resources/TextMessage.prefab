@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 8877135120765881049}
   - component: {fileID: 8877135120765881048}
   - component: {fileID: 8877135120765881055}
-  - component: {fileID: 1215611014242801141}
+  - component: {fileID: 628958266958494103}
   m_Layer: 5
   m_Name: TextMessage
   m_TagString: Untagged
@@ -207,7 +207,7 @@ MonoBehaviour:
           m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1215611014242801141
+--- !u!114 &628958266958494103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,6 +216,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8877135120765881052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923b6dee143566b46bc29fb46b21749f, type: 3}
+  m_Script: {fileID: 11500000, guid: 60a360fd67a3ff345bc66e48ea1fd346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
