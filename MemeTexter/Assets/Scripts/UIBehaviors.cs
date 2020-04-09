@@ -32,7 +32,7 @@ public class UIBehaviors : MonoBehaviour
     {
         if (chat.otherPage == null)
         {
-            GameObject newPage = (GameObject)Instantiate(Resources.Load("TestChat"));
+            GameObject newPage = (GameObject)Instantiate(Resources.Load("ChatPage"));
             newPage.transform.SetParent(canvas.transform, false);
             chat.otherPage = newPage;
         }

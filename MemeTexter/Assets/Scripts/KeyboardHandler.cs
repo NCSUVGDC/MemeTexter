@@ -5,18 +5,23 @@ using UnityEngine;
 public class KeyboardHandler : MonoBehaviour
 {
     Vector3 position;
+    float galleryHeight;
+
+    public GameObject galleryContainer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         position = gameObject.GetComponent<RectTransform>().position;
+        galleryHeight = galleryContainer.GetComponent<RectTransform>().sizeDelta.y;
     }
 
     private void Update()
     {
         if (TouchScreenKeyboard.visible)
         {
-            transform.position = position + new Vector3(0, GetKeyboardHeight(true), 0);
+            transform.position = position + new Vector3(0, GetKeyboardHeight(true) - galleryHeight, 0);
         } else
         {
             transform.position = position;
