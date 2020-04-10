@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4030436790345257138}
   - component: {fileID: 3690058565102993221}
   - component: {fileID: 6548695860366928822}
+  - component: {fileID: 6164912673579442368}
   m_Layer: 5
   m_Name: Meme
   m_TagString: Untagged
@@ -117,3 +118,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6164912673579442368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6612337614610475414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdae99cf68e6399438edf4af55e05fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 0}
+  contentMessages: {fileID: 0}
+  image: {fileID: 3690058565102993221}

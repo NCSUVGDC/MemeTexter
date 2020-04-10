@@ -7,6 +7,7 @@ public class MessageBehaviors : MonoBehaviour
 {
     public InputField textField;
     public GameObject contentMessages;
+    public Image image;
 
     public void SendMessage()
     {
@@ -18,5 +19,13 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.GetComponentInChildren<Text>().text = textField.text;
             textField.text = "";
         }
+    }
+
+    public void SendMemeMessage()
+    {
+        GameObject newMessage = (GameObject)Instantiate(Resources.Load("MemeMessage"));
+        newMessage.transform.SetParent(contentMessages.transform, false);
+
+        newMessage.GetComponentInChildren<Image>().sprite = image.sprite;
     }
 }
