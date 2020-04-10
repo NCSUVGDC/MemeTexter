@@ -7,6 +7,7 @@ public class Gallery : MonoBehaviour
 {
     // Memes to be used in the current ChatPage, should contain all of player's memes
     List<Meme> ownedMemes = new List<Meme>();
+    public GameObject contentMessages;
 
     /// <summary>
     /// Updates the chat's gallery with any memes that have been obtained
@@ -26,6 +27,7 @@ public class Gallery : MonoBehaviour
                 if (!ownedMemes.Contains(meme))
                 {
                     GameObject memeButton = (GameObject)Instantiate(Resources.Load("Meme"));
+                    memeButton.GetComponent<MessageBehaviors>().contentMessages = contentMessages;
                     memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
                     memeButton.transform.SetParent(gameObject.transform, false);
                     meme.SetButton(memeButton);
@@ -57,6 +59,7 @@ public class Gallery : MonoBehaviour
         foreach (Meme meme in ownedMemes)
         {
             GameObject memeButton = (GameObject)Instantiate(Resources.Load("Meme"));
+            memeButton.GetComponent<MessageBehaviors>().contentMessages = contentMessages;
             memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
             memeButton.transform.SetParent(gameObject.transform, false);
             meme.SetButton(memeButton);
@@ -74,6 +77,7 @@ public class Gallery : MonoBehaviour
         //construct a meme
         GameObject newMeme = (GameObject)Instantiate(Resources.Load("TextMessage"));
         newMeme.GetComponentInChildren<Image>().sprite = img;
+        newMeme.GetComponent<Meme>();
 
         //add to the scrollview
 

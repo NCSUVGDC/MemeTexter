@@ -44,6 +44,8 @@ public class UIBehaviors : MonoBehaviour
             chat.otherPage.SetActive(true);
             chat.chatGallery.UpdateGallery();
         }
+
+        gameObject.transform.SetAsFirstSibling();
     }
 
     public void OpenSettings(Chat chat)
@@ -73,6 +75,8 @@ public class UIBehaviors : MonoBehaviour
 
         newChat.GetComponent<Chat>().user = newChat.GetComponent<User>();
         newChat.GetComponentInChildren<Text>().text = newChat.GetComponent<User>().userName;
+
+        newChat.transform.SetAsFirstSibling();
     }
 
     public void NewMeme()

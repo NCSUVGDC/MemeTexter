@@ -26,6 +26,8 @@ public class MessageBehaviors : MonoBehaviour
         GameObject newMessage = (GameObject)Instantiate(Resources.Load("MemeMessage"));
         newMessage.transform.SetParent(contentMessages.transform, false);
 
+
+
         newMessage.GetComponentInChildren<Image>().sprite = image.sprite;
     }
 }
