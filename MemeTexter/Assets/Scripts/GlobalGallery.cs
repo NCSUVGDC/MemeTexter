@@ -24,6 +24,10 @@ public class GlobalGallery : MonoBehaviour
     // public static List<Meme> GetMemeLordGallery()
 
 
+    //all of the available usernames for new opponents
+    private static List<string> userNames = new List<string>();
+
+
     void Awake()
     {
         // Singleton stuff
@@ -48,6 +52,12 @@ public class GlobalGallery : MonoBehaviour
             {
                 playerUnowned.Add(m);
             }
+        }
+
+        //Fill the list of names that can be used for new users
+        if (userNames.Count == 0)
+        {
+            FillUserNames();
         }
     }
 
@@ -142,5 +152,31 @@ public class GlobalGallery : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Fills the list of usernames with names from Resources/MemeFiles/NameData.txt
+    /// </summary>
+    private static void FillUserNames()
+    {
+        TextAsset textFile = (TextAsset)Resources.Load("MemeFiles/NameData");
+        // For each line in MemeData.txt...
+        string[] lines = textFile.text.Split("\n"[0]);
+        for (int i = 0; i < lines.Length; i++)
+        {
+            userNames.Add(lines[i]);
+        }
+    }
+
+    /// <summary>
+    /// Gets the global list of names generated from Resources/MemeFiles/NameData.txt
+    /// </summary>
+    /// <returns> List of all names still available</returns>
+    public static string GetUserName()
+    {
+        int rand = Random.Range(0, userNames.Count);
+        string s = userNames[rand];
+        userNames.RemoveAt(rand);
+        return s;
     }
 }
