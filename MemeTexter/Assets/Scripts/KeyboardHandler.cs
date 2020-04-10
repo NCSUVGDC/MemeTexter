@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class KeyboardHandler : MonoBehaviour
 {
-    Vector3 position;
+    Vector2 position;
     float galleryHeight;
+    float sendContainerHeight;
 
     public GameObject galleryContainer;
 
@@ -13,19 +14,22 @@ public class KeyboardHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        position = gameObject.GetComponent<RectTransform>().position;
-        galleryHeight = galleryContainer.GetComponent<RectTransform>().sizeDelta.y;
+        position = transform.position;
+        galleryHeight = galleryContainer.GetComponent<RectTransform>().rect.height;
+        sendContainerHeight = gameObject.GetComponent<RectTransform>().rect.height;
+        Debug.Log(galleryHeight);
+        Debug.Log(sendContainerHeight);
     }
 
     private void Update()
     {
-        if (TouchScreenKeyboard.visible)
+        /*if (TouchScreenKeyboard.visible)
         {
-            transform.position = position + new Vector3(0, GetKeyboardHeight(true) - galleryHeight, 0);
+            transform.position = position + new Vector2(0, GetKeyboardHeight(true) - galleryHeight - sendContainerHeight);
         } else
         {
             transform.position = position;
-        }
+        }*/
     }
 
     public static int GetKeyboardHeight(bool includeInput)
