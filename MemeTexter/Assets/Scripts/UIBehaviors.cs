@@ -35,10 +35,13 @@ public class UIBehaviors : MonoBehaviour
             GameObject newPage = (GameObject)Instantiate(Resources.Load("ChatPage"));
             newPage.transform.SetParent(canvas.transform, false);
             chat.otherPage = newPage;
+            chat.chatGallery = newPage.GetComponentInChildren<Gallery>();
+            chat.chatGallery.CreateGallery();
         }
         else
         {
             chat.otherPage.SetActive(true);
+            chat.chatGallery.UpdateGallery();
         }
     }
 
@@ -60,6 +63,15 @@ public class UIBehaviors : MonoBehaviour
     {
         GameObject newChat = (GameObject)Instantiate(Resources.Load("ChatButton"));
         newChat.transform.SetParent(contentChats.transform, false);
+    }
+
+    public void NewMeme()
+    {
+        if (GlobalGallery.GetPlayerUnowned().Count > 0)
+        {
+            int index = Random.Range(0, GlobalGallery.GetPlayerUnowned().Count);
+            GlobalGallery.AddPlayerMeme(GlobalGallery.GetPlayerUnowned().ToArray()[index]);
+        }
     }
 
     public void OpenRunningChats(GameObject currentPage)

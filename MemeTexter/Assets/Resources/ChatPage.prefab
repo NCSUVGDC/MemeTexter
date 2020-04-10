@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 3491366441505065464}
   - component: {fileID: 2213760577850372428}
   - component: {fileID: 1355570780454764825}
+  - component: {fileID: 8652841679215842172}
   m_Layer: 5
   m_Name: TextField
   m_TagString: Untagged
@@ -449,7 +450,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8652841679215842172}
+        m_MethodName: SendMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -460,6 +472,20 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+--- !u!114 &8652841679215842172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242832141842053185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdae99cf68e6399438edf4af55e05fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1355570780454764825}
+  contentMessages: {fileID: 7331671325878301047}
 --- !u!1 &1478755964467048846
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,8 +745,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5606411979613902363}
   m_HandleRect: {fileID: 8965572379215983237}
   m_Direction: 2
-  m_Value: 0.9999723
-  m_Size: 0.9957066
+  m_Value: 1
+  m_Size: 0.9970088
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2035,7 +2061,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6625604790094017064}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2515,12 +2541,12 @@ PrefabInstance:
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -91.93749
       objectReference: {fileID: 0}
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
@@ -2540,7 +2566,7 @@ PrefabInstance:
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
@@ -2550,7 +2576,7 @@ PrefabInstance:
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
@@ -2562,10 +2588,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761560521810289191, guid: e1177d22862209d42aecab730b55d589,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6612337614610475414, guid: e1177d22862209d42aecab730b55d589,
         type: 3}
       propertyPath: m_Name
       value: Meme
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612337614610475414, guid: e1177d22862209d42aecab730b55d589,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1177d22862209d42aecab730b55d589, type: 3}
