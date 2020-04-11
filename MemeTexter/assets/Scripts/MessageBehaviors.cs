@@ -18,6 +18,10 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.transform.SetParent(contentMessages.transform, false);
 
             newMessage.GetComponentInChildren<Text>().text = textField.text;
+            if (textField.text.ToUpper() == "START!")
+            {
+                match.matchOngoing = true;
+            }
             textField.text = "";
         }
     }
