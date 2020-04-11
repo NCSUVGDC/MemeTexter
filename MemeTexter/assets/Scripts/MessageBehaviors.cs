@@ -8,6 +8,7 @@ public class MessageBehaviors : MonoBehaviour
     public InputField textField;
     public GameObject contentMessages;
     public Image image;
+    public Match match;
 
     public void SendMessage()
     {
@@ -23,11 +24,16 @@ public class MessageBehaviors : MonoBehaviour
 
     public void SendMemeMessage()
     {
-        GameObject newMessage = (GameObject)Instantiate(Resources.Load("MemeMessage"));
-        newMessage.transform.SetParent(contentMessages.transform, false);
-
-
-
-        newMessage.GetComponentInChildren<Image>().sprite = image.sprite;
+        if (match.matchOngoing)
+        {
+            GameObject newMessage = (GameObject)Instantiate(Resources.Load("MatchMessage"));
+            newMessage.transform.SetParent(contentMessages.transform, false);
+        } else
+        {
+            GameObject newMessage = (GameObject)Instantiate(Resources.Load("MemeMessage"));
+            newMessage.transform.SetParent(contentMessages.transform, false);
+            newMessage.GetComponentInChildren<Image>().sprite = image.sprite;
+        }
+        
     }
 }
