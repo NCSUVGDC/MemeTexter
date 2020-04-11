@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBehaviors : MonoBehaviour
 {
@@ -35,11 +36,16 @@ public class UIBehaviors : MonoBehaviour
             GameObject newPage = (GameObject)Instantiate(Resources.Load("ChatPage"));
             newPage.transform.SetParent(canvas.transform, false);
             chat.otherPage = newPage;
+            chat.chatGallery = newPage.GetComponentInChildren<Gallery>();
+            chat.chatGallery.CreateGallery();
         }
         else
         {
             chat.otherPage.SetActive(true);
+            chat.chatGallery.UpdateGallery();
         }
+
+        gameObject.transform.SetAsFirstSibling();
     }
 
     public void OpenSettings(Chat chat)
@@ -56,16 +62,51 @@ public class UIBehaviors : MonoBehaviour
         }
     }
 
+    /**
+     * Method to create a new chat.
+     * Instatiates a new chat prefab and gives it a new generated User
+     */
     public void NewChat()
     {
         GameObject newChat = (GameObject)Instantiate(Resources.Load("ChatButton"));
         newChat.transform.SetParent(contentChats.transform, false);
+
+        GenerateUser(newChat);
+
+        newChat.GetComponent<Chat>().user = newChat.GetComponent<User>();
+        newChat.GetComponentInChildren<Text>().text = newChat.GetComponent<User>().userName;
+
+        newChat.transform.SetAsFirstSibling();
     }
 
+    public void NewMeme()
+    {
+        if (GlobalGallery.GetPlayerUnowned().Count > 0)
+        {
+            int index = Random.Range(0, GlobalGallery.GetPlayerUnowned().Count);
+            GlobalGallery.AddPlayerMeme(GlobalGallery.GetPlayerUnowned().ToArray()[index]);
+        }
+    }
+
+    /**
+     * Method to return to the home page with all open chats
+     */
     public void OpenRunningChats(GameObject currentPage)
     {
         chatsPage.SetActive(true);
         currentPage.SetActive(false);
+    }
+
+    /**
+     * Method used to generate a new username
+     */
+    private void GenerateUser(GameObject chat)
+    {
+        //randomly get name, somehow (need a list of names somewhere, similar implementation to memes?)
+        string name = GlobalGallery.GetUserName();
+
+        chat.AddComponent<User>();
+        chat.GetComponent<User>().userName = name;
     }
 
 

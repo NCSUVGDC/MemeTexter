@@ -6,6 +6,7 @@ public class Chat : MonoBehaviour
 {
     public User user;
     public GameObject otherPage = null;
+    public Gallery chatGallery;
 
     void Awake()
     {
