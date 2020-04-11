@@ -8,6 +8,9 @@ public class Gallery : MonoBehaviour
     // Memes to be used in the current ChatPage, should contain all of player's memes
     List<Meme> ownedMemes = new List<Meme>();
     public GameObject contentMessages;
+    public GameObject enemyMessages;
+    public GameObject matchMessages;
+    public HandleScrolling handler;
     public Match match;
 
     /// <summary>
@@ -29,6 +32,9 @@ public class Gallery : MonoBehaviour
                 {
                     GameObject memeButton = (GameObject)Instantiate(Resources.Load("Meme"));
                     memeButton.GetComponent<MessageBehaviors>().contentMessages = contentMessages;
+                    memeButton.GetComponent<MessageBehaviors>().enemyMessages = enemyMessages;
+                    memeButton.GetComponent<MessageBehaviors>().matchMessages = matchMessages;
+                    memeButton.GetComponent<MessageBehaviors>().handler = handler;
                     memeButton.GetComponent<MessageBehaviors>().match = match;
                     memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
                     memeButton.transform.SetParent(gameObject.transform, false);
@@ -62,6 +68,9 @@ public class Gallery : MonoBehaviour
         {
             GameObject memeButton = (GameObject)Instantiate(Resources.Load("Meme"));
             memeButton.GetComponent<MessageBehaviors>().contentMessages = contentMessages;
+            memeButton.GetComponent<MessageBehaviors>().enemyMessages = enemyMessages;
+            memeButton.GetComponent<MessageBehaviors>().matchMessages = matchMessages;
+            memeButton.GetComponent<MessageBehaviors>().handler = handler;
             memeButton.GetComponent<MessageBehaviors>().match = match;
             memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
             memeButton.transform.SetParent(gameObject.transform, false);

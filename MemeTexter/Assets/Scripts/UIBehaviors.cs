@@ -38,6 +38,9 @@ public class UIBehaviors : MonoBehaviour
             chat.otherPage = newPage;
             chat.chatGallery = newPage.GetComponentInChildren<Gallery>();
             chat.chatGallery.CreateGallery();
+
+            GameObject otherPage = chat.otherPage;
+            otherPage.GetComponent<Match>().user = chat.gameObject.GetComponent<User>();
         }
         else
         {

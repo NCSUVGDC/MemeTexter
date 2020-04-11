@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 8877135120765881049}
   - component: {fileID: 8877135120765881048}
   - component: {fileID: 628958266958494103}
+  - component: {fileID: 7609477591969161000}
   m_Layer: 5
   m_Name: TextMessage
   m_TagString: Untagged
@@ -164,3 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a360fd67a3ff345bc66e48ea1fd346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &7609477591969161000
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8877135120765881052}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

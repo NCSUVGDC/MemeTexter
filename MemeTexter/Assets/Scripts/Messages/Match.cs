@@ -5,6 +5,6 @@ using UnityEngine;
 public class Match : MonoBehaviour
 {
 
-    public bool matchOngoing = false;    
-
+    public bool matchOngoing = false;
+    public User user;
 }
