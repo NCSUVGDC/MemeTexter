@@ -455,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 270674983253573546, guid: db2c728b92a8fac418e6f6cb6d958f67,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000018835068
+      value: -0.0006065623
       objectReference: {fileID: 0}
     - target: {fileID: 270674983253573546, guid: db2c728b92a8fac418e6f6cb6d958f67,
         type: 3}
@@ -587,6 +587,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 270674984155299249, guid: db2c728b92a8fac418e6f6cb6d958f67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2906877478236834398, guid: db2c728b92a8fac418e6f6cb6d958f67,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -630,6 +635,31 @@ PrefabInstance:
     - target: {fileID: 4225275276666202228, guid: db2c728b92a8fac418e6f6cb6d958f67,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867730438539880014, guid: db2c728b92a8fac418e6f6cb6d958f67,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867730438539880014, guid: db2c728b92a8fac418e6f6cb6d958f67,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867730438539880014, guid: db2c728b92a8fac418e6f6cb6d958f67,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867730438539880014, guid: db2c728b92a8fac418e6f6cb6d958f67,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867730438539880014, guid: db2c728b92a8fac418e6f6cb6d958f67,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112244738085271608, guid: db2c728b92a8fac418e6f6cb6d958f67,
