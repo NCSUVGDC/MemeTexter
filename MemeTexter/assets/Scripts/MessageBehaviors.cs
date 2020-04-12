@@ -103,12 +103,13 @@ public class MessageBehaviors : MonoBehaviour
             GlobalGallery.AddPlayerMeme(newMeme);
 
             //spawn the new player's meme
-            GameObject memeToObtain = (GameObject)Instantiate(Resources.Load("MemeMessage"));
+            GameObject memeToObtain = (GameObject)Instantiate(Resources.Load("EnemyMeme"));
             memeToObtain.transform.SetParent(matchMessages.transform, false);
             memeToObtain.GetComponent<MemeMessage>().imageObj.GetComponent<Image>().sprite = newMeme.GetImageSprite();
             Canvas.ForceUpdateCanvases();
             matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
 
+            gallery.UpdateGallery();
 
         } else
         {

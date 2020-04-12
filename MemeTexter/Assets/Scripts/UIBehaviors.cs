@@ -87,14 +87,14 @@ public class UIBehaviors : MonoBehaviour
         SoundManager.instance.PlayButton();
     }
 
-    public void NewMeme()
+    public static void NewMeme()
     {
         if (GlobalGallery.GetPlayerUnowned().Count > 0)
         {
             int index = Random.Range(0, GlobalGallery.GetPlayerUnowned().Count);
             GlobalGallery.AddPlayerMeme(GlobalGallery.GetPlayerUnowned().ToArray()[index]);
         }
-        SoundManager.instance.PlayButton();
+        //SoundManager.instance.PlayButton();
     }
 
     /**
