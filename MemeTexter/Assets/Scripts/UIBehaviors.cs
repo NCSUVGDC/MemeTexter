@@ -110,11 +110,11 @@ public class UIBehaviors : MonoBehaviour
         string name = GlobalGallery.GetUserName();
 
         //randomly generate difficulty (for now I guess?)
-        int difficulty = Random.Range(1, GlobalGallery.GetPlayerGallery().Count);
+        float difficulty = Random.Range(GlobalGallery.GetPlayerGallery().Count / 5, GlobalGallery.GetPlayerGallery().Count);
 
         chat.AddComponent<User>();
         chat.GetComponent<User>().userName = name;
-        chat.GetComponent<User>().difficulty = difficulty;
+        chat.GetComponent<User>().difficulty = Mathf.RoundToInt(difficulty) + 1;
     }
 
 
