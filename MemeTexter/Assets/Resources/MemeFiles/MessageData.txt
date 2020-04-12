@@ -1,6 +1,0 @@
-Let's Battle!,Engage
-Frick yea, I won!,PlayerLoss
-Frick you!,PlayerWin
-Good move!,PlayerRoundWin
-Haha!,PlayerRoundLoss
-oh a tie,Tie
