@@ -94,4 +94,13 @@ public class Meme
         this.button = button;
     }
 
+    /// <summary>
+    /// Gets the button of the meme
+    /// </summary>
+    /// <returns>Button GameObject</returns>
+    public GameObject GetButton()
+    {
+        return button;
+    }
+
 }

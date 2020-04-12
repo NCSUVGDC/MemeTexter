@@ -34,6 +34,34 @@ public class GlobalGallery : MonoBehaviour
     private static List<string> playerRoundWinTexts = new List<string>();
     private static List<string> playerRoundLossTexts = new List<string>();
     private static List<string> tieTexts = new List<string>();
+    private static List<string> conversationTexts = new List<string>();
+
+    //set up lists for memeLord
+    private static List<string> engageTextsLord = new List<string>();
+    private static List<string> playerWinTextsLord = new List<string>();
+    private static List<string> playerLossTextsLord = new List<string>();
+    private static List<string> playerRoundWinTextsLord = new List<string>();
+    private static List<string> playerRoundLossTextsLord = new List<string>();
+    private static List<string> tieTextsLord = new List<string>();
+    private static List<string> conversationTextsLord = new List<string>();
+
+    //set up lists for Mom
+    private static List<string> engageTextsMom = new List<string>();
+    private static List<string> playerWinTextsMom = new List<string>();
+    private static List<string> playerLossTextsMom = new List<string>();
+    private static List<string> playerRoundWinTextsMom = new List<string>();
+    private static List<string> playerRoundLossTextsMom = new List<string>();
+    private static List<string> tieTextsMom = new List<string>();
+    private static List<string> conversationTextsMom = new List<string>();
+
+    //set up lists for Rival
+    private static List<string> engageTextsRival = new List<string>();
+    private static List<string> playerWinTextsRival = new List<string>();
+    private static List<string> playerLossTextsRival = new List<string>();
+    private static List<string> playerRoundWinTextsRival = new List<string>();
+    private static List<string> playerRoundLossTextsRival = new List<string>();
+    private static List<string> tieTextsRival = new List<string>();
+    private static List<string> conversationTextsRival = new List<string>();
 
 
 
@@ -74,6 +102,10 @@ public class GlobalGallery : MonoBehaviour
         {
             FillUserNames();
         }
+
+        UIBehaviors.NewMeme();
+        UIBehaviors.NewMeme();
+        UIBehaviors.NewMeme();
     }
 
     /// <summary>
@@ -175,7 +207,7 @@ public class GlobalGallery : MonoBehaviour
     private static void FillUserNames()
     {
         TextAsset textFile = (TextAsset)Resources.Load("MemeFiles/NameData");
-        // For each line in MemeData.txt...
+        // For each line in NameData.txt...
         string[] lines = textFile.text.Split("\n"[0]);
         for (int i = 0; i < lines.Length; i++)
         {
@@ -206,7 +238,7 @@ public class GlobalGallery : MonoBehaviour
         {
             string[] messageData = lines[i].Split(","[0]);
             //Debug.Log(lines[i]);
-            if (messageData.Length == 2)
+            if (messageData.Length == 3)
             {
                 string message = messageData[0].Trim();
                 string type = messageData[1].Trim();
@@ -214,22 +246,123 @@ public class GlobalGallery : MonoBehaviour
 
                 if (type == "Engage")
                 {
-                    engageTexts.Add(message);
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            engageTexts.Add(message);
+                            break;
+                        case "Mom":
+                            engageTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            engageTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            engageTextsLord.Add(message);
+                            break;
+                    }
                 } else if (type == "PlayerWin")
                 {
-                    playerWinTexts.Add(message);
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            playerWinTexts.Add(message);
+                            break;
+                        case "Mom":
+                            playerWinTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            playerWinTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            playerWinTextsLord.Add(message);
+                            break;
+                    }
                 } else if (type == "PlayerLoss")
                 {
-                    playerLossTexts.Add(message);
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            playerLossTexts.Add(message);
+                            break;
+                        case "Mom":
+                            playerLossTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            playerLossTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            playerLossTextsLord.Add(message);
+                            break;
+                    }
                 } else if (type == "PlayerRoundWin")
                 {
-                    playerRoundWinTexts.Add(message);
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            playerRoundWinTexts.Add(message);
+                            break;
+                        case "Mom":
+                            playerRoundWinTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            playerRoundWinTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            playerRoundWinTextsLord.Add(message);
+                            break;
+                    }
                 } else if (type == "PlayerRoundLoss")
                 {
-                    playerRoundLossTexts.Add(message);
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            playerRoundLossTexts.Add(message);
+                            break;
+                        case "Mom":
+                            playerRoundLossTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            playerRoundLossTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            playerRoundLossTextsLord.Add(message);
+                            break;
+                    }
                 } else if (type == "Tie")
                 {
-                    tieTexts.Add(message);
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            tieTexts.Add(message);
+                            break;
+                        case "Mom":
+                            tieTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            tieTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            tieTextsLord.Add(message);
+                            break;
+                    }
+                } else if (type == "Converse")
+                {
+                    switch (messageData[2].Trim())
+                    {
+                        case "Norm":
+                            conversationTexts.Add(message);
+                            break;
+                        case "Mom":
+                            conversationTextsMom.Add(message);
+                            break;
+                        case "Rival":
+                            conversationTextsRival.Add(message);
+                            break;
+                        case "MemeLord":
+                            conversationTextsLord.Add(message);
+                            break;
+                    }
                 }
             }
         }
@@ -264,7 +397,138 @@ public class GlobalGallery : MonoBehaviour
         {
             rand = Random.Range(0, tieTexts.Count);
             return (tieTexts[rand]);
+        } else if (type == MessageBehaviors.MessageType.Converse)
+        {
+            if (conversationTexts.Count > 0)
+            {
+                rand = Random.Range(0, conversationTexts.Count);
+                return (conversationTexts[rand]);
+            }
         }
         return null;
     }
+
+    public static string GetMomMessage(MessageBehaviors.MessageType type)
+    {
+        int rand;
+        if (type == MessageBehaviors.MessageType.Engage)
+        {
+            rand = Random.Range(0, engageTexts.Count);
+            return (engageTexts[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerWin)
+        {
+            rand = Random.Range(0, playerWinTexts.Count);
+            return (playerWinTextsMom[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerLoss)
+        {
+            rand = Random.Range(0, playerLossTexts.Count);
+            return (playerLossTextsMom[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerRoundWin)
+        {
+            rand = Random.Range(0, playerRoundWinTexts.Count);
+            return (playerRoundWinTextsMom[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerRoundLoss)
+        {
+            rand = Random.Range(0, playerRoundLossTexts.Count);
+            return (playerRoundLossTextsMom[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.Tie)
+        {
+            rand = Random.Range(0, tieTexts.Count);
+            return (tieTextsMom[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.Converse)
+        {
+            rand = Random.Range(0, conversationTexts.Count);
+            return (conversationTextsMom[rand]);
+        }
+        return null;
+    }
+
+    public static string GetLordMessage(MessageBehaviors.MessageType type)
+    {
+        int rand;
+        if (type == MessageBehaviors.MessageType.Engage)
+        {
+            rand = Random.Range(0, engageTexts.Count);
+            return (engageTextsLord[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerWin)
+        {
+            rand = Random.Range(0, playerWinTexts.Count);
+            return (playerWinTextsLord[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerLoss)
+        {
+            rand = Random.Range(0, playerLossTexts.Count);
+            return (playerLossTextsLord[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerRoundWin)
+        {
+            rand = Random.Range(0, playerRoundWinTexts.Count);
+            return (playerRoundWinTextsLord[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerRoundLoss)
+        {
+            rand = Random.Range(0, playerRoundLossTexts.Count);
+            return (playerRoundLossTextsLord[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.Tie)
+        {
+            rand = Random.Range(0, tieTexts.Count);
+            return (tieTextsLord[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.Converse)
+        {
+            rand = Random.Range(0, conversationTexts.Count);
+            return (conversationTextsLord[rand]);
+        }
+        return null;
+    }
+
+    public static string GetRivalMessage(MessageBehaviors.MessageType type)
+    {
+        int rand;
+        if (type == MessageBehaviors.MessageType.Engage)
+        {
+            rand = Random.Range(0, engageTexts.Count);
+            return (engageTextsRival[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerWin)
+        {
+            rand = Random.Range(0, playerWinTexts.Count);
+            return (playerWinTextsRival[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerLoss)
+        {
+            rand = Random.Range(0, playerLossTexts.Count);
+            return (playerLossTextsRival[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerRoundWin)
+        {
+            rand = Random.Range(0, playerRoundWinTexts.Count);
+            return (playerRoundWinTextsRival[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerRoundLoss)
+        {
+            rand = Random.Range(0, playerRoundLossTexts.Count);
+            return (playerRoundLossTextsRival[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.Tie)
+        {
+            rand = Random.Range(0, tieTexts.Count);
+            return (tieTextsRival[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.Converse)
+        {
+            rand = Random.Range(0, conversationTexts.Count);
+            return (conversationTextsRival[rand]);
+        }
+        return null;
+    }
+
 }

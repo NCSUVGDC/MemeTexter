@@ -16,6 +16,7 @@ public class Match : MonoBehaviour
     int difficulty;
 
     public GameObject nameObject;
+    public Gallery gallery;
 
     public void Start()
     {
@@ -26,15 +27,14 @@ public class Match : MonoBehaviour
         
     }
 
-    public MessageBehaviors.MessageType TakeTurn(GameObject matchMessage, Meme playerMeme)
+    public MessageBehaviors.MessageType TakeTurn(GameObject matchMessage, Meme playerMeme, Gallery gallery)
     {
-
-
         int rand = Random.Range(0, memes.Count);
         Meme enemyMeme = memes[rand];
 
         //this line grabs the enemyMeme section of the matchMessage and changes it to the right image
         matchMessage.GetComponent<TextMessage>().opponentImg.GetComponent<Image>().sprite = enemyMeme.GetImageSprite();
+        matchMessage.GetComponent<TextMessage>().opponentTxt.GetComponent<Text>().text = enemyMeme.GetMemeType().ToString();
 
         MessageBehaviors.MessageType type = MessageBehaviors.MessageType.Tie;
 
@@ -87,12 +87,47 @@ public class Match : MonoBehaviour
 
         matchMessage.GetComponent<TextMessage>().scoreText.GetComponent<Text>().text = enemyScore + ":" + playerScore;
 
-        if (playerScore > difficulty)
+        if (playerScore >= difficulty)
         {
             matchOngoing = false;
+            SoundManager.instance.PlayIdle();
+            playerScore = 0;
+            enemyScore = 0;
+            //gallery.EnableMemes();
             return MessageBehaviors.MessageType.PlayerWin;
+        }
+
+        if (enemyScore >= difficulty)
+        {
+            matchOngoing = false;
+            SoundManager.instance.PlayIdle();
+            playerScore = 0;
+            enemyScore = 0;
+            //gallery.EnableMemes();
+            return MessageBehaviors.MessageType.PlayerLoss;
+        }
+
+        
+        if (gallery.disabledMemes.Count >= GlobalGallery.GetPlayerGallery().Count)
+        {
+            matchOngoing = false;
+            SoundManager.instance.PlayIdle();
+            playerScore = 0;
+            enemyScore = 0;
+            //gallery.EnableMemes();
+            return MessageBehaviors.MessageType.PlayerLoss;
         }
 
         return type;
     }
+
+    public bool RewardCheck()
+    {
+        if (difficulty > (float)GlobalGallery.GetPlayerGallery().Count / 5)
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

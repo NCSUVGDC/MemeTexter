@@ -48,6 +48,7 @@ public class UIBehaviors : MonoBehaviour
             chat.otherPage.SetActive(true);
             chat.chatGallery.UpdateGallery();
         }
+        SoundManager.instance.PlayButton();
 
         gameObject.transform.SetAsFirstSibling();
     }
@@ -64,6 +65,7 @@ public class UIBehaviors : MonoBehaviour
         {
             chat.otherPage.SetActive(true);
         }
+        SoundManager.instance.PlayButton();
     }
 
     /**
@@ -81,15 +83,18 @@ public class UIBehaviors : MonoBehaviour
         newChat.GetComponentInChildren<Text>().text = newChat.GetComponent<User>().userName;
 
         newChat.transform.SetAsFirstSibling();
+
+        SoundManager.instance.PlayButton();
     }
 
-    public void NewMeme()
+    public static void NewMeme()
     {
         if (GlobalGallery.GetPlayerUnowned().Count > 0)
         {
             int index = Random.Range(0, GlobalGallery.GetPlayerUnowned().Count);
             GlobalGallery.AddPlayerMeme(GlobalGallery.GetPlayerUnowned().ToArray()[index]);
         }
+        //SoundManager.instance.PlayButton();
     }
 
     /**
@@ -99,6 +104,7 @@ public class UIBehaviors : MonoBehaviour
     {
         chatsPage.SetActive(true);
         currentPage.SetActive(false);
+        SoundManager.instance.PlayButton();
     }
 
     /**
@@ -110,11 +116,11 @@ public class UIBehaviors : MonoBehaviour
         string name = GlobalGallery.GetUserName();
 
         //randomly generate difficulty (for now I guess?)
-        int difficulty = Random.Range(1, 3);
+        float difficulty = Random.Range(GlobalGallery.GetPlayerGallery().Count / 5, GlobalGallery.GetPlayerGallery().Count);
 
         chat.AddComponent<User>();
         chat.GetComponent<User>().userName = name;
-        chat.GetComponent<User>().difficulty = difficulty;
+        chat.GetComponent<User>().difficulty = Mathf.RoundToInt(difficulty) + 1;
     }
 
 
