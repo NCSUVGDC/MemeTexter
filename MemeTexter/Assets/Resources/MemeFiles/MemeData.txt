@@ -1,0 +1,23 @@
+Krillin Meh,Will,Reaction,krillin
+The One and Only,Joseph,DeepFried,stoney
+Bad Luck,Joseph,Text,brian
+Fear,Greg,DeepFried,fear
+Doge,will,Reaction,doge
+Don't Forget,will,Text,blathers
+JPEG hank,Frank Hill,DeepFried,hankdog
+I am Looking,brad,Text,look
+In the Corner,Big Daddy,Text,corner
+VGDC Logo,Griffin,DeepFried,logo
+Modeling Teacher,Yoseph,Reaction,teacher
+Joshua,Joshua,Reaction,joshua
+Dank Space,Bailey,Text,dank
+WhatFace,Bailey,Reaction,what
+Joe Question,Lex,Text,joe
+Sleep Schedule,will,Text,sleep
+Power,:M:,Reaction,power
+Best Anime,:M:,DeepFried,cory
+OWOverwatch,:M:,DeepFried,owotch
+Ringo,:M:,Reaction,ringo
+Chancellor Smoke,:M:,Text,smoke
+Valve Sonic,:M:,Text,sonic
+Computer SideQuest,:M:,Text,wizard

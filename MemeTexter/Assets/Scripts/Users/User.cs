@@ -5,6 +5,7 @@ using UnityEngine;
 public class User : MonoBehaviour
 {
     public string userName;
+    public int difficulty;
 
     // Start is called before the first frame update
     void Start()
