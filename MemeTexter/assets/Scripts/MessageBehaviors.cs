@@ -11,6 +11,7 @@ public class MessageBehaviors : MonoBehaviour
     public Image image;
     public Meme userMeme;
     public Match match;
+    public Gallery gallery;
 
     public void SendMessage()
     {
@@ -19,6 +20,8 @@ public class MessageBehaviors : MonoBehaviour
             //spawn the real text message
             GameObject newMessage = (GameObject)Instantiate(Resources.Load("TextMessage"));
             newMessage.transform.SetParent(matchMessages.transform, false);
+            Canvas.ForceUpdateCanvases();
+            matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
 
             //detect if the user intends to start a match
             newMessage.GetComponentInChildren<Text>().text = textField.text;
@@ -26,6 +29,9 @@ public class MessageBehaviors : MonoBehaviour
             {
                 match.matchOngoing = true;
                 SendEnemyMessage(MessageType.Engage);
+            } else
+            {
+                SendEnemyMessage(MessageType.Converse);
             }
             textField.text = "";
         }
@@ -39,16 +45,24 @@ public class MessageBehaviors : MonoBehaviour
             GameObject newMessage = (GameObject)Instantiate(Resources.Load("MatchMessage"));
             newMessage.transform.SetParent(matchMessages.transform, false);
             newMessage.GetComponent<TextMessage>().playerImg.GetComponent<Image>().sprite = image.sprite;
-            MessageType matchStatus = match.TakeTurn(newMessage, userMeme);
+            newMessage.GetComponent<TextMessage>().playerTxt.GetComponent<Text>().text = userMeme.GetMemeType().ToString();
+            gallery.DisableMeme(userMeme.GetButton());
+            Canvas.ForceUpdateCanvases();
+            matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
+            MessageType matchStatus = match.TakeTurn(newMessage, userMeme, gallery);
             SendEnemyMessage(matchStatus);
-
+            if (matchStatus == MessageType.PlayerWin)
+            {
+                SendEnemyReward(match.RewardCheck());
+            }
         } else
         {
             //spawn the real user message
             GameObject newMessage = (GameObject)Instantiate(Resources.Load("MemeMessage"));
             newMessage.transform.SetParent(matchMessages.transform, false);
             newMessage.GetComponent<MemeMessage>().imageObj.GetComponent<Image>().sprite = image.sprite;
-
+            Canvas.ForceUpdateCanvases();
+            matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
         }
         
     }
@@ -60,6 +74,33 @@ public class MessageBehaviors : MonoBehaviour
         newMessage.GetComponentInChildren<Text>().text = enemyMessage;
         newMessage.transform.SetParent(matchMessages.transform, false);
 
+        if (type == MessageType.PlayerLoss)
+        {
+            newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
+            newMessage.GetComponentInChildren<Text>().text = "You Lost!";
+            newMessage.transform.SetParent(matchMessages.transform, false);
+        }
+
+        Canvas.ForceUpdateCanvases();
+        matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
+    }
+
+    public void SendEnemyReward(bool earned)
+    {
+        if (earned)
+        {
+            GameObject newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
+            newMessage.GetComponentInChildren<Text>().text = "Here, take this meme";
+            newMessage.transform.SetParent(matchMessages.transform, false);
+        } else
+        {
+            GameObject newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
+            newMessage.GetComponentInChildren<Text>().text = "That was no fair! You're not getting a meme";
+            newMessage.transform.SetParent(matchMessages.transform, false);
+        }
+
+        Canvas.ForceUpdateCanvases();
+        matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
     }
 
 
