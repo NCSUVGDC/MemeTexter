@@ -27,6 +27,15 @@ public class GlobalGallery : MonoBehaviour
     //all of the available usernames for new opponents
     private static List<string> userNames = new List<string>();
 
+    //set up lists for dialog
+    private static List<string> engageTexts = new List<string>();
+    private static List<string> playerWinTexts = new List<string>();
+    private static List<string> playerLossTexts = new List<string>();
+    private static List<string> playerRoundWinTexts = new List<string>();
+    private static List<string> playerRoundLossTexts = new List<string>();
+    private static List<string> tieTexts = new List<string>();
+
+
 
     void Awake()
     {
@@ -43,7 +52,13 @@ public class GlobalGallery : MonoBehaviour
         {
             FillGlobalGallery();
         }
-        
+
+        if (engageTexts.Count + playerWinTexts.Count + playerLossTexts.Count 
+            + playerRoundWinTexts.Count + playerRoundLossTexts.Count == 0)
+        {
+            FillGlobalDialogs();
+        }
+
         // Fill the list of memes the player does not own if both the
         // player's gallery and their list of unowned memes is empty
         if (playerGallery.Count == 0 && playerUnowned.Count == 0)
@@ -178,5 +193,78 @@ public class GlobalGallery : MonoBehaviour
         string s = userNames[rand];
         userNames.RemoveAt(rand);
         return s;
+    }
+
+
+    private static void FillGlobalDialogs()
+    {
+        TextAsset textFile = (TextAsset)Resources.Load("MemeFiles/MessageData");
+
+        //for each line in MessageData.txt...
+        string[] lines = textFile.text.Split("\n"[0]);
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string[] messageData = lines[i].Split(","[0]);
+            //Debug.Log(lines[i]);
+            if (messageData.Length == 2)
+            {
+                string message = messageData[0].Trim();
+                string type = messageData[1].Trim();
+                //Debug.Log(type);
+
+                if (type == "Engage")
+                {
+                    engageTexts.Add(message);
+                } else if (type == "PlayerWin")
+                {
+                    playerWinTexts.Add(message);
+                } else if (type == "PlayerLoss")
+                {
+                    playerLossTexts.Add(message);
+                } else if (type == "PlayerRoundWin")
+                {
+                    playerRoundWinTexts.Add(message);
+                } else if (type == "PlayerRoundLoss")
+                {
+                    playerRoundLossTexts.Add(message);
+                } else if (type == "Tie")
+                {
+                    tieTexts.Add(message);
+                }
+            }
+        }
+    }
+
+    public static string GetEnemyMessage(MessageBehaviors.MessageType type)
+    {
+        int rand;
+        if (type == MessageBehaviors.MessageType.Engage)
+        {
+            rand = Random.Range(0, engageTexts.Count);
+            return (engageTexts[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerWin)
+        {
+            rand = Random.Range(0, playerWinTexts.Count);
+            return (playerWinTexts[rand]);
+        }
+        else if (type == MessageBehaviors.MessageType.PlayerLoss)
+        {
+            rand = Random.Range(0, playerLossTexts.Count);
+            return (playerLossTexts[rand]);
+        } else if (type == MessageBehaviors.MessageType.PlayerRoundWin)
+        {
+            rand = Random.Range(0, playerRoundWinTexts.Count);
+            return (playerRoundWinTexts[rand]);
+        } else if (type == MessageBehaviors.MessageType.PlayerRoundLoss)
+        {
+            rand = Random.Range(0, playerRoundLossTexts.Count);
+            return (playerRoundLossTexts[rand]);
+        } else if (type == MessageBehaviors.MessageType.Tie)
+        {
+            rand = Random.Range(0, tieTexts.Count);
+            return (tieTexts[rand]);
+        }
+        return null;
     }
 }

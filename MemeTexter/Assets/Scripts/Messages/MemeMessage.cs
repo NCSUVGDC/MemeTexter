@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MemeMessage : MonoBehaviour
 {
+
+    public GameObject imageObj;
+
     // Start is called before the first frame update
     void Start()
     {
