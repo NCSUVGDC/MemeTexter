@@ -12,6 +12,7 @@ public class MessageBehaviors : MonoBehaviour
     public Meme userMeme;
     public Match match;
     public Gallery gallery;
+    public GameObject back;
 
     public void SendMessage()
     {
