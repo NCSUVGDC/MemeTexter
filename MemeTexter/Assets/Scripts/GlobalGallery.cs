@@ -395,8 +395,11 @@ public class GlobalGallery : MonoBehaviour
             return (tieTexts[rand]);
         } else if (type == MessageBehaviors.MessageType.Converse)
         {
-            rand = Random.Range(0, conversationTexts.Count);
-            return (conversationTexts[rand]);
+            if (conversationTexts.Count > 0)
+            {
+                rand = Random.Range(0, conversationTexts.Count);
+                return (conversationTexts[rand]);
+            }
         }
         return null;
     }

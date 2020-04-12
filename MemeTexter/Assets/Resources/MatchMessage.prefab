@@ -428,6 +428,8 @@ MonoBehaviour:
   scoreText: {fileID: 7360161054926341647}
   opponentImg: {fileID: 2255526520659509908}
   playerImg: {fileID: 3712228795240918621}
+  opponentTxt: {fileID: 416907038326778684}
+  playerTxt: {fileID: 4467504704074942303}
 --- !u!225 &52260297383996552
 CanvasGroup:
   m_ObjectHideFlags: 0

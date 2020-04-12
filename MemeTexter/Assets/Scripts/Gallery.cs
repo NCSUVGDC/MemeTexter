@@ -10,6 +10,8 @@ public class Gallery : MonoBehaviour
     public GameObject matchMessages;
     public Match match;
 
+    public List<GameObject> disabledMemes;
+
     /// <summary>
     /// Updates the chat's gallery with any memes that have been obtained
     /// since the last time the chat was opened. Gets called when the chat
@@ -31,6 +33,7 @@ public class Gallery : MonoBehaviour
                     memeButton.GetComponent<MessageBehaviors>().matchMessages = matchMessages;
                     memeButton.GetComponent<MessageBehaviors>().match = match;
                     memeButton.GetComponent<MessageBehaviors>().userMeme = meme;
+                    memeButton.GetComponent<MessageBehaviors>().gallery = this;
                     memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
                     memeButton.transform.SetParent(gameObject.transform, false);
                     meme.SetButton(memeButton);
@@ -46,7 +49,7 @@ public class Gallery : MonoBehaviour
     }
 
     /// <summary>
-    /// Creates the chat's gallary the first time the ChatPage is opened. Gets
+    /// Creates the chat's gallery the first time the ChatPage is opened. Gets
     /// called when the chat is opened for the first time.
     /// </summary>
     public void CreateGallery()
@@ -65,6 +68,7 @@ public class Gallery : MonoBehaviour
             memeButton.GetComponent<MessageBehaviors>().matchMessages = matchMessages;
             memeButton.GetComponent<MessageBehaviors>().match = match;
             memeButton.GetComponent<MessageBehaviors>().userMeme = meme;
+            memeButton.GetComponent<MessageBehaviors>().gallery = this;
             memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
             memeButton.transform.SetParent(gameObject.transform, false);
             meme.SetButton(memeButton);
@@ -72,22 +76,28 @@ public class Gallery : MonoBehaviour
         
     }
 
-
-
-
-
-    // Not sure what to do with this
-    public void AddMeme(Sprite img)
+    /// <summary>
+    /// Disable a meme button and add it to a list of disabled buttons
+    /// </summary>
+    /// <param name="button">Button being disabled</param>
+    public void DisableMeme(GameObject button)
     {
-        //construct a meme
-        GameObject newMeme = (GameObject)Instantiate(Resources.Load("TextMessage"));
-        newMeme.GetComponentInChildren<Image>().sprite = img;
-        newMeme.GetComponent<Meme>();
-
-        //add to the scrollview
-
-
-        //pass to global addmeme
-        //GlobalGallery.AddGlobalMeme(newMeme.GetComponent<Meme>());
+        button.GetComponent<Button>().interactable = false;
+        disabledMemes.Add(button);
     }
+
+    /// <summary>
+    /// Enable all meme buttons in a gallery
+    /// </summary>
+    public void EnableMemes()
+    {
+        foreach(GameObject meme in disabledMemes)
+        {
+            meme.GetComponent<Button>().interactable = true;
+        }
+
+        disabledMemes.Clear();
+    }
+
+
 }
