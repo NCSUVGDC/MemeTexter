@@ -21,3 +21,25 @@ Ringo,:M:,Reaction,ringo
 Chancellor Smoke,:M:,Text,smoke
 Valve Sonic,:M:,Text,sonic
 Computer SideQuest,:M:,Text,wizard
+Pasta la Vista,Fuzzydacat,Text,pasta
+Drink That Garlic,Fuzzydacat,Text,drinkgarlic
+Clay Cat Man,Fuzzydacat,DeepFried,claycat
+JoJo Lick,Fuzzydacat,DeepFried,lick
+Christian Channel,Fuzzydacat,Reaction,christian
+Mtn Dew: Code Bread,Fuzzydacat,DeepFried,codebread
+5G Towers,Fuzzydacat,Text,5g
+Disappointed DK,Fuzzydacat,Reaction,dk
+Don't Text and Derive,Fuzzydacat,Text,derive
+King DeDeDe's No U,Fuzzydacat,Reaction,nou
+Lint Hot Pocket,Aaron Brewer,DeepFried,lint
+His Voice When You Wake Up,Aaron Brewer,Text,awake
+Paper Vs. Plastic,Fuzzydacat,Text,papervplastic
+Thinking Cat,Fuzzydacat,Reaction,catthink
+Am I Adopted?,Aaron Brewer,Text,adoption
+Helth,Aaron Brewer,Text,helth
+Meet and Cheez,Aaron Brewer,Text,meetandcheez
+Long Tea,Aaron Brewer,Text,longtea
+Orange Be Gone,Aaron Brewer,DeepFried,noorange
+Sawlmon,Aaron Brewer,Text,sawlmon
+Ouch Medication,Aaron Brewer,Text,ouchesmed
+Theatening Lamp,Bailey,Text,lamp
