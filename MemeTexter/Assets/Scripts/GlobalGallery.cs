@@ -347,16 +347,16 @@ public class GlobalGallery : MonoBehaviour
                     switch (messageData[2].Trim())
                     {
                         case "Norm":
-                            tieTexts.Add(message);
+                            conversationTexts.Add(message);
                             break;
                         case "Mom":
-                            tieTextsMom.Add(message);
+                            conversationTextsMom.Add(message);
                             break;
                         case "Rival":
-                            tieTextsRival.Add(message);
+                            conversationTextsRival.Add(message);
                             break;
                         case "MemeLord":
-                            tieTextsLord.Add(message);
+                            conversationTextsLord.Add(message);
                             break;
                     }
                 }
