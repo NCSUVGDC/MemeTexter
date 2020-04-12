@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TextMessage : MonoBehaviour
 {
+
+    public GameObject scoreText;
+    public GameObject opponentImg;
+    public GameObject playerImg;
+
+
     // Start is called before the first frame update
     void Start()
     {

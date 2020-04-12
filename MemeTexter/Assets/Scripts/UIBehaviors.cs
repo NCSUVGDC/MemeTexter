@@ -35,9 +35,13 @@ public class UIBehaviors : MonoBehaviour
         {
             GameObject newPage = (GameObject)Instantiate(Resources.Load("ChatPage"));
             newPage.transform.SetParent(canvas.transform, false);
+            newPage.GetComponent<Match>().nameObject.GetComponent<Text>().text = chat.user.userName;
             chat.otherPage = newPage;
             chat.chatGallery = newPage.GetComponentInChildren<Gallery>();
             chat.chatGallery.CreateGallery();
+
+            GameObject otherPage = chat.otherPage;
+            otherPage.GetComponent<Match>().user = chat.gameObject.GetComponent<User>();
         }
         else
         {
@@ -105,8 +109,12 @@ public class UIBehaviors : MonoBehaviour
         //randomly get name, somehow (need a list of names somewhere, similar implementation to memes?)
         string name = GlobalGallery.GetUserName();
 
+        //randomly generate difficulty (for now I guess?)
+        int difficulty = Random.Range(1, 3);
+
         chat.AddComponent<User>();
         chat.GetComponent<User>().userName = name;
+        chat.GetComponent<User>().difficulty = difficulty;
     }
 
 
