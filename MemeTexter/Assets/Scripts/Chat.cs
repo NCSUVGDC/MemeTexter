@@ -14,7 +14,7 @@ public class Chat : MonoBehaviour
 
     void Start()
     {
-        if (userImageObj != null)
+        if (userImageObj != null && user.userName != "Mom" && user.userName != "Dad" && user.userName != "XxUrRivalxX" && user.userName != "The Ultimate Meme Lord")
         {
             Object[] images = Resources.LoadAll("Profiles", typeof(Sprite));
             int rand = Random.Range(0, images.Length - 1);
@@ -24,7 +24,6 @@ public class Chat : MonoBehaviour
         if (difficultyObj != null)
         {
             difficultyObj.GetComponent<Text>().text = "Difficulty: " + user.difficulty;
-            Debug.Log(user.difficulty);
         }
     }
 
