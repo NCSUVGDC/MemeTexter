@@ -470,8 +470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620cb69a5f5ae1c458dfea11e62c9cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  efxSource: {fileID: 436916636}
-  musicSource: {fileID: 436916635}
+  efxSource: {fileID: 436916635}
+  musicSource: {fileID: 436916636}
   lowPitchRange: 0.95
   highPitchRange: 1.05
   idleMusic: {fileID: 8300000, guid: db98f716b03e41242800a6a94f2078b3, type: 3}

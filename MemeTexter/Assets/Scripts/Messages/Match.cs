@@ -90,6 +90,7 @@ public class Match : MonoBehaviour
         if (playerScore >= difficulty)
         {
             matchOngoing = false;
+            SoundManager.instance.PlayIdle();
             playerScore = 0;
             enemyScore = 0;
             gallery.EnableMemes();
@@ -99,15 +100,18 @@ public class Match : MonoBehaviour
         if (enemyScore >= difficulty)
         {
             matchOngoing = false;
+            SoundManager.instance.PlayIdle();
             playerScore = 0;
             enemyScore = 0;
             gallery.EnableMemes();
             return MessageBehaviors.MessageType.PlayerLoss;
         }
 
+        
         if (gallery.disabledMemes.Count >= GlobalGallery.GetPlayerGallery().Count)
         {
             matchOngoing = false;
+            SoundManager.instance.PlayIdle();
             playerScore = 0;
             enemyScore = 0;
             gallery.EnableMemes();

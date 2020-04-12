@@ -48,6 +48,7 @@ public class UIBehaviors : MonoBehaviour
             chat.otherPage.SetActive(true);
             chat.chatGallery.UpdateGallery();
         }
+        SoundManager.instance.PlayButton();
 
         gameObject.transform.SetAsFirstSibling();
     }
@@ -64,6 +65,7 @@ public class UIBehaviors : MonoBehaviour
         {
             chat.otherPage.SetActive(true);
         }
+        SoundManager.instance.PlayButton();
     }
 
     /**
@@ -81,6 +83,8 @@ public class UIBehaviors : MonoBehaviour
         newChat.GetComponentInChildren<Text>().text = newChat.GetComponent<User>().userName;
 
         newChat.transform.SetAsFirstSibling();
+
+        SoundManager.instance.PlayButton();
     }
 
     public void NewMeme()
@@ -90,6 +94,7 @@ public class UIBehaviors : MonoBehaviour
             int index = Random.Range(0, GlobalGallery.GetPlayerUnowned().Count);
             GlobalGallery.AddPlayerMeme(GlobalGallery.GetPlayerUnowned().ToArray()[index]);
         }
+        SoundManager.instance.PlayButton();
     }
 
     /**
@@ -99,6 +104,7 @@ public class UIBehaviors : MonoBehaviour
     {
         chatsPage.SetActive(true);
         currentPage.SetActive(false);
+        SoundManager.instance.PlayButton();
     }
 
     /**
