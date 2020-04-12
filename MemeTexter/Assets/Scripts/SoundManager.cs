@@ -37,33 +37,46 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    //Used to play single sound clips.
-    public void PlaySingle(AudioClip clip)
+    //Used to play the idle music (exiting combat)
+    public void PlayIdle()
     {
-        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        efxSource.clip = clip;
+        musicSource.clip = idleMusic;
 
         //Play the clip.
-        efxSource.Play();
+        musicSource.Play();
     }
 
 
-    //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
-    public void RandomizeSfx(params AudioClip[] clips)
+    //Used to play battle music (entering combat)
+    public void PlayRandomBattle()
     {
         //Generate a random number between 0 and the length of our array of clips passed in.
-        int randomIndex = Random.Range(0, clips.Length);
-
-        //Choose a random pitch to play back our clip at between our high and low pitch ranges.
-        float randomPitch = Random.Range(lowPitchRange, highPitchRange);
-
-        //Set the pitch of the audio source to the randomly chosen pitch.
-        efxSource.pitch = randomPitch;
+        int randomIndex = Random.Range(0, battleMusic.Count);
 
         //Set the clip to the clip at our randomly chosen index.
-        efxSource.clip = clips[randomIndex];
+        musicSource.clip = battleMusic[randomIndex];
 
         //Play the clip.
+        musicSource.Play();
+    }
+
+    public void PlaySend()
+    {
+        efxSource.clip = send;
         efxSource.Play();
     }
+
+    public void PlayReceive()
+    {
+        efxSource.clip = receive;
+        efxSource.Play();
+    }
+
+    public void PlayButton()
+    {
+        efxSource.clip = button;
+        efxSource.Play();
+    }
+
+
 }
