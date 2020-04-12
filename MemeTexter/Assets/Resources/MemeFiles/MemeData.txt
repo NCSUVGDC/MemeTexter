@@ -1,3 +1,9 @@
 Krillin Meh,Will,Reaction,krillin
 The One and Only,Joseph,DeepFried,stoney
 Bad Luck,Joseph,Text,brian
+Fear,Greg,DeepFried,fear
+Doge,will,Reaction,doge
+Don't Forget,will,Text,blathers
+JPEG hank,Frank Hill,DeepFried,hankdog
+I am Looking,brad,Text,look
+In the Corner,Big Daddy,Text,corner
