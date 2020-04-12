@@ -96,12 +96,28 @@ public class MessageBehaviors : MonoBehaviour
             GameObject newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
             newMessage.GetComponentInChildren<Text>().text = "Here, take this meme";
             newMessage.transform.SetParent(matchMessages.transform, false);
+
+            List<Meme> playerUnowned = GlobalGallery.GetPlayerUnowned();
+            int rand = Random.Range(0, playerUnowned.Count);
+            Meme newMeme = playerUnowned[rand];
+            GlobalGallery.AddPlayerMeme(newMeme);
+
+            //spawn the new player's meme
+            GameObject memeToObtain = (GameObject)Instantiate(Resources.Load("MemeMessage"));
+            memeToObtain.transform.SetParent(matchMessages.transform, false);
+            memeToObtain.GetComponent<MemeMessage>().imageObj.GetComponent<Image>().sprite = newMeme.GetImageSprite();
+            Canvas.ForceUpdateCanvases();
+            matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
+
+
         } else
         {
             GameObject newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
             newMessage.GetComponentInChildren<Text>().text = "That was no fair! You're not getting a meme";
             newMessage.transform.SetParent(matchMessages.transform, false);
         }
+
+
 
         Canvas.ForceUpdateCanvases();
         matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
