@@ -38,7 +38,7 @@ public class MessageBehaviors : MonoBehaviour
             //spawn the real match message
             GameObject newMessage = (GameObject)Instantiate(Resources.Load("MatchMessage"));
             newMessage.transform.SetParent(matchMessages.transform, false);
-            newMessage.transform.GetChild(3).GetComponent<Image>().sprite = image.sprite;
+            newMessage.GetComponent<TextMessage>().playerImg.GetComponent<Image>().sprite = image.sprite;
             MessageType matchStatus = match.TakeTurn(newMessage, userMeme);
             SendEnemyMessage(matchStatus);
 

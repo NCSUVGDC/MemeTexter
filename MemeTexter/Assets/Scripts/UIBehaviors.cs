@@ -35,6 +35,7 @@ public class UIBehaviors : MonoBehaviour
         {
             GameObject newPage = (GameObject)Instantiate(Resources.Load("ChatPage"));
             newPage.transform.SetParent(canvas.transform, false);
+            newPage.GetComponent<Match>().nameObject.GetComponent<Text>().text = chat.user.userName;
             chat.otherPage = newPage;
             chat.chatGallery = newPage.GetComponentInChildren<Gallery>();
             chat.chatGallery.CreateGallery();

@@ -15,6 +15,8 @@ public class Match : MonoBehaviour
 
     int difficulty;
 
+    public GameObject nameObject;
+
     public void Start()
     {
         difficulty = user.difficulty;
@@ -32,7 +34,7 @@ public class Match : MonoBehaviour
         Meme enemyMeme = memes[rand];
 
         //this line grabs the enemyMeme section of the matchMessage and changes it to the right image
-        matchMessage.transform.GetChild(2).GetComponent<Image>().sprite = enemyMeme.GetImageSprite();
+        matchMessage.GetComponent<TextMessage>().opponentImg.GetComponent<Image>().sprite = enemyMeme.GetImageSprite();
 
         MessageBehaviors.MessageType type = MessageBehaviors.MessageType.Tie;
 
@@ -83,7 +85,7 @@ public class Match : MonoBehaviour
             }
         }
 
-        matchMessage.transform.GetChild(1).GetComponent<Text>().text = playerScore + ":" + enemyScore;
+        matchMessage.GetComponent<TextMessage>().scoreText.GetComponent<Text>().text = enemyScore + ":" + playerScore;
 
         if (playerScore > difficulty)
         {
