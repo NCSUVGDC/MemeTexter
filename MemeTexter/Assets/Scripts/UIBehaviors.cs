@@ -108,8 +108,12 @@ public class UIBehaviors : MonoBehaviour
         //randomly get name, somehow (need a list of names somewhere, similar implementation to memes?)
         string name = GlobalGallery.GetUserName();
 
+        //randomly generate difficulty (for now I guess?)
+        int difficulty = Random.Range(1, 3);
+
         chat.AddComponent<User>();
         chat.GetComponent<User>().userName = name;
+        chat.GetComponent<User>().difficulty = difficulty;
     }
 
 
