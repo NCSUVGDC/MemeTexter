@@ -12,6 +12,8 @@ public class Gallery : MonoBehaviour
 
     public List<GameObject> disabledMemes;
 
+    public GameObject back;
+
     /// <summary>
     /// Updates the chat's gallery with any memes that have been obtained
     /// since the last time the chat was opened. Gets called when the chat
@@ -34,6 +36,7 @@ public class Gallery : MonoBehaviour
                     memeButton.GetComponent<MessageBehaviors>().match = match;
                     memeButton.GetComponent<MessageBehaviors>().userMeme = meme;
                     memeButton.GetComponent<MessageBehaviors>().gallery = this;
+                    memeButton.GetComponent<MessageBehaviors>().back = back;
                     memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
                     memeButton.transform.SetParent(gameObject.transform, false);
                     meme.SetButton(memeButton);
@@ -69,6 +72,7 @@ public class Gallery : MonoBehaviour
             memeButton.GetComponent<MessageBehaviors>().match = match;
             memeButton.GetComponent<MessageBehaviors>().userMeme = meme;
             memeButton.GetComponent<MessageBehaviors>().gallery = this;
+            memeButton.GetComponent<MessageBehaviors>().back = back;
             memeButton.GetComponent<Image>().sprite = meme.GetImageSprite();
             memeButton.transform.SetParent(gameObject.transform, false);
             meme.SetButton(memeButton);

@@ -31,6 +31,7 @@ public class MessageBehaviors : MonoBehaviour
             {
                 match.matchOngoing = true;
                 SendEnemyMessage(MessageType.Engage);
+                back.GetComponent<Button>().interactable = false;
                 SoundManager.instance.PlayRandomBattle();
             } else
             {
@@ -84,6 +85,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
             newMessage.GetComponentInChildren<Text>().text = "You Lost!";
             newMessage.transform.SetParent(matchMessages.transform, false);
+            back.GetComponent<Button>().interactable = true;
         }
 
         Canvas.ForceUpdateCanvases();
@@ -119,7 +121,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.transform.SetParent(matchMessages.transform, false);
         }
 
-
+        back.GetComponent<Button>().interactable = true;
 
         Canvas.ForceUpdateCanvases();
         matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
