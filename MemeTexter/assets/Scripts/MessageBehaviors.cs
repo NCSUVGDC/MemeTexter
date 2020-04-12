@@ -22,6 +22,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.transform.SetParent(matchMessages.transform, false);
             Canvas.ForceUpdateCanvases();
             matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
+            SoundManager.instance.PlaySend();
 
             //detect if the user intends to start a match
             newMessage.GetComponentInChildren<Text>().text = textField.text;
@@ -29,6 +30,7 @@ public class MessageBehaviors : MonoBehaviour
             {
                 match.matchOngoing = true;
                 SendEnemyMessage(MessageType.Engage);
+                SoundManager.instance.PlayRandomBattle();
             } else
             {
                 SendEnemyMessage(MessageType.Converse);
@@ -63,6 +65,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.GetComponent<MemeMessage>().imageObj.GetComponent<Image>().sprite = image.sprite;
             Canvas.ForceUpdateCanvases();
             matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
+            SoundManager.instance.PlaySend();
         }
         
     }
@@ -73,6 +76,7 @@ public class MessageBehaviors : MonoBehaviour
         GameObject newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
         newMessage.GetComponentInChildren<Text>().text = enemyMessage;
         newMessage.transform.SetParent(matchMessages.transform, false);
+        SoundManager.instance.PlayReceive();
 
         if (type == MessageType.PlayerLoss)
         {
