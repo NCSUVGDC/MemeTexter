@@ -87,10 +87,16 @@ public class Match : MonoBehaviour
 
         matchMessage.GetComponent<TextMessage>().scoreText.GetComponent<Text>().text = enemyScore + ":" + playerScore;
 
-        if (playerScore > difficulty)
+        if (playerScore >= difficulty)
         {
             matchOngoing = false;
             return MessageBehaviors.MessageType.PlayerWin;
+        }
+
+        if (enemyScore >= difficulty)
+        {
+            matchOngoing = false;
+            return MessageBehaviors.MessageType.PlayerLoss;
         }
 
         return type;
