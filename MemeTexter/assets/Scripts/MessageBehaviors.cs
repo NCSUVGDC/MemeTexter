@@ -70,7 +70,8 @@ public class MessageBehaviors : MonoBehaviour
         PlayerLoss,
         PlayerRoundWin,
         PlayerRoundLoss,
-        Tie
+        Tie,
+        Converse
     }
 }
 
