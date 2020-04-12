@@ -48,7 +48,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.transform.SetParent(matchMessages.transform, false);
             newMessage.GetComponent<TextMessage>().playerImg.GetComponent<Image>().sprite = image.sprite;
             newMessage.GetComponent<TextMessage>().playerTxt.GetComponent<Text>().text = userMeme.GetMemeType().ToString();
-            gallery.DisableMeme(userMeme.GetButton());
+            //gallery.DisableMeme(userMeme.GetButton());
             Canvas.ForceUpdateCanvases();
             matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
             MessageType matchStatus = match.TakeTurn(newMessage, userMeme, gallery);

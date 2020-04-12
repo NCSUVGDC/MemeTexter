@@ -93,7 +93,7 @@ public class Match : MonoBehaviour
             SoundManager.instance.PlayIdle();
             playerScore = 0;
             enemyScore = 0;
-            gallery.EnableMemes();
+            //gallery.EnableMemes();
             return MessageBehaviors.MessageType.PlayerWin;
         }
 
@@ -103,7 +103,7 @@ public class Match : MonoBehaviour
             SoundManager.instance.PlayIdle();
             playerScore = 0;
             enemyScore = 0;
-            gallery.EnableMemes();
+            //gallery.EnableMemes();
             return MessageBehaviors.MessageType.PlayerLoss;
         }
 
@@ -114,7 +114,7 @@ public class Match : MonoBehaviour
             SoundManager.instance.PlayIdle();
             playerScore = 0;
             enemyScore = 0;
-            gallery.EnableMemes();
+            //gallery.EnableMemes();
             return MessageBehaviors.MessageType.PlayerLoss;
         }
 
