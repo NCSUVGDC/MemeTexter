@@ -102,6 +102,10 @@ public class GlobalGallery : MonoBehaviour
         {
             FillUserNames();
         }
+
+        UIBehaviors.NewMeme();
+        UIBehaviors.NewMeme();
+        UIBehaviors.NewMeme();
     }
 
     /// <summary>

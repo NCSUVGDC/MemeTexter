@@ -12,6 +12,7 @@ public class MessageBehaviors : MonoBehaviour
     public Meme userMeme;
     public Match match;
     public Gallery gallery;
+    public GameObject back;
 
     public void SendMessage()
     {
@@ -30,6 +31,7 @@ public class MessageBehaviors : MonoBehaviour
             {
                 match.matchOngoing = true;
                 SendEnemyMessage(MessageType.Engage);
+                back.GetComponent<Button>().interactable = false;
                 SoundManager.instance.PlayRandomBattle();
             } else
             {
@@ -83,6 +85,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
             newMessage.GetComponentInChildren<Text>().text = "You Lost!";
             newMessage.transform.SetParent(matchMessages.transform, false);
+            back.GetComponent<Button>().interactable = true;
         }
 
         Canvas.ForceUpdateCanvases();
@@ -103,12 +106,13 @@ public class MessageBehaviors : MonoBehaviour
             GlobalGallery.AddPlayerMeme(newMeme);
 
             //spawn the new player's meme
-            GameObject memeToObtain = (GameObject)Instantiate(Resources.Load("MemeMessage"));
+            GameObject memeToObtain = (GameObject)Instantiate(Resources.Load("EnemyMeme"));
             memeToObtain.transform.SetParent(matchMessages.transform, false);
             memeToObtain.GetComponent<MemeMessage>().imageObj.GetComponent<Image>().sprite = newMeme.GetImageSprite();
             Canvas.ForceUpdateCanvases();
             matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
 
+            gallery.UpdateGallery();
 
         } else
         {
@@ -117,7 +121,7 @@ public class MessageBehaviors : MonoBehaviour
             newMessage.transform.SetParent(matchMessages.transform, false);
         }
 
-
+        back.GetComponent<Button>().interactable = true;
 
         Canvas.ForceUpdateCanvases();
         matchMessages.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 0);
