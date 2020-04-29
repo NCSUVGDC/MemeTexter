@@ -27,7 +27,7 @@ public class Match : MonoBehaviour
         
     }
 
-    public MessageBehaviors.MessageType TakeTurn(GameObject matchMessage, Meme playerMeme, Gallery gallery)
+    public MessageType TakeTurn(GameObject matchMessage, Meme playerMeme, Gallery gallery)
     {
         int rand = Random.Range(0, memes.Count);
         Meme enemyMeme = memes[rand];
@@ -36,7 +36,7 @@ public class Match : MonoBehaviour
         matchMessage.GetComponent<TextMessage>().opponentImg.GetComponent<Image>().sprite = enemyMeme.GetImageSprite();
         matchMessage.GetComponent<TextMessage>().opponentTxt.GetComponent<Text>().text = enemyMeme.GetMemeType().ToString();
 
-        MessageBehaviors.MessageType type = MessageBehaviors.MessageType.Tie;
+        MessageType type = MessageType.Tie;
 
         if (playerMeme.GetMemeType() == Meme.MemeType.DeepFried)
         {
@@ -44,11 +44,11 @@ public class Match : MonoBehaviour
             {
                 case Meme.MemeType.Reaction:
                     playerScore++;
-                    type = MessageBehaviors.MessageType.PlayerRoundWin;
+                    type = MessageType.PlayerRoundWin;
                     break;
                 case Meme.MemeType.Text:
                     enemyScore++;
-                    type = MessageBehaviors.MessageType.PlayerRoundLoss;
+                    type = MessageType.PlayerRoundLoss;
                     break;
                 default:
                     break;
@@ -59,11 +59,11 @@ public class Match : MonoBehaviour
             {
                 case Meme.MemeType.Text:
                     playerScore++;
-                    type = MessageBehaviors.MessageType.PlayerRoundWin;
+                    type = MessageType.PlayerRoundWin;
                     break;
                 case Meme.MemeType.DeepFried:
                     enemyScore++;
-                    type = MessageBehaviors.MessageType.PlayerRoundLoss;
+                    type = MessageType.PlayerRoundLoss;
                     break;
                 default:
                     break;
@@ -74,11 +74,11 @@ public class Match : MonoBehaviour
             {
                 case Meme.MemeType.DeepFried:
                     playerScore++;
-                    type = MessageBehaviors.MessageType.PlayerRoundWin;
+                    type = MessageType.PlayerRoundWin;
                     break;
                 case Meme.MemeType.Reaction:
                     enemyScore++;
-                    type = MessageBehaviors.MessageType.PlayerRoundLoss;
+                    type = MessageType.PlayerRoundLoss;
                     break;
                 default:
                     break;
@@ -94,7 +94,7 @@ public class Match : MonoBehaviour
             playerScore = 0;
             enemyScore = 0;
             //gallery.EnableMemes();
-            return MessageBehaviors.MessageType.PlayerWin;
+            return MessageType.PlayerWin;
         }
 
         if (enemyScore >= difficulty)
@@ -104,7 +104,7 @@ public class Match : MonoBehaviour
             playerScore = 0;
             enemyScore = 0;
             //gallery.EnableMemes();
-            return MessageBehaviors.MessageType.PlayerLoss;
+            return MessageType.PlayerLoss;
         }
 
         
@@ -115,7 +115,7 @@ public class Match : MonoBehaviour
             playerScore = 0;
             enemyScore = 0;
             //gallery.EnableMemes();
-            return MessageBehaviors.MessageType.PlayerLoss;
+            return MessageType.PlayerLoss;
         }
 
         return type;

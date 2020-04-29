@@ -40,7 +40,7 @@ On the outside i skrtskrt but on the inside i hurthurt,Converse,Norm
 i have u now!,Converse,Norm
 Im scooten,Converse,Norm
 When ur walkin,Converse,Norm
-Yeah, i steal memes. so what?,Converse,Norm
+Yeah i steal memes. so what?,Converse,Norm
 That makes me go yes,Converse,Norm
 hey look at us! Who’d a thought?,Converse,Norm
 i no u didn’t mean that,Converse,Norm
@@ -117,7 +117,7 @@ goood effort,PlayerRoundLoss,Norm
 oh a tie,Tie,Norm
 no way,Tie,Norm
 Great minds think alike,Tie,Norm
-Ah ha, good taste,Tie,Norm
+Ah ha good taste,Tie,Norm
 na-nani?!,Tie,Norm
 That’s a bruh moment,Tie,Norm
 ...,Tie,Norm
@@ -136,7 +136,7 @@ perfectly balanced,Tie,Mom
 fight me!,Engage,Rival
 finally a worthy opponent,Engage,Rival
 our battle will be legendary!,Engage,Rival
-the student has become the teacher!Converse,Rival
+the student has become the teacher!,Converse,Rival
 as your rival im allowed to defeat you,Converse,Rival
 while im unkind to you i also respect you,Converse,Rival
 you take that back!,Converse,Rival
