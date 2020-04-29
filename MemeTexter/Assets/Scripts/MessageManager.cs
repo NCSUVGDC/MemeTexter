@@ -31,7 +31,6 @@ public class MessageManager : MonoBehaviour
         //fill the dialogs if empty
         if (texts.Count == 0)
         {
-            Debug.Log("this should only print once");
             FillGlobalDialogs();
         }
     }
@@ -68,27 +67,14 @@ public class MessageManager : MonoBehaviour
                     Debug.Log("Can't parse the sender type on line: " + i);
                 }
 
-
-                //build the message (because apparently CONSTRUCTORS FUCK THINGS UP)
-                Message m = new Message();
-                m.messageContent = message;
-                m.messageType = type;
-                m.senderType = sender;
-
-                //Debug.Log("adding " + i + ": " + m.ToString());
-
+                //build and add the message to our list
+                Message m = new Message(message, type, sender);
                 texts.Add(m);
                 
-
             } else
             {
                 Debug.Log("Problem with MessageData format on line: " + i);
             }
-        }
-
-        foreach(Message text in texts)
-        {
-            Debug.Log("checking: " + text.ToString());
         }
     }   
 
@@ -105,7 +91,6 @@ public class MessageManager : MonoBehaviour
         List<Message> tempList = new List<Message>();
         for (int i = 0; i < texts.Count; i++)
         {
-            Debug.Log(i + ": " + texts[i].ToString());
             if (mType == texts[i].getMessageType() && sType == texts[i].getSenderType())
             {
                 tempList.Add(texts[i]);
@@ -114,8 +99,6 @@ public class MessageManager : MonoBehaviour
 
         //need to specify UnityEngine here because we are using the "System" library
         int rand = UnityEngine.Random.Range(0, tempList.Count);
-
-        Debug.Log(tempList.Count);
 
         //grab a random entry and return it
         return tempList[rand];

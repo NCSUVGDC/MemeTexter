@@ -32,11 +32,6 @@ public class Message : object
         senderType = sType;
     }
 
-    public Message()
-    {
-
-    }
-
     /// <summary>
     /// Get the actual content of the message
     /// </summary>
