@@ -7,17 +7,17 @@ public class Message : object
     /// <summary>
     /// Content of the message
     /// </summary>
-    public string messageContent;
+    private string messageContent;
 
     /// <summary>
     /// The type of the message from the MessageType enum
     /// </summary>
-    public MessageType messageType;
+    private MessageType messageType;
 
     /// <summary>
     /// The type of this message's sender from the SenderType enum
     /// </summary>
-    public SenderType senderType;
+    private SenderType senderType;
 
     /// <summary>
     /// Constructor for a Message object
