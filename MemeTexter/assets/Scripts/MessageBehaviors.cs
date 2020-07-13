@@ -74,7 +74,7 @@ public class MessageBehaviors : MonoBehaviour
 
     public void SendEnemyMessage(MessageType type)
     {
-        string enemyMessage = GlobalGallery.GetEnemyMessage(type);
+        string enemyMessage = MessageManager.GetMessage(type, SenderType.Norm).getMessageContent();
         GameObject newMessage = (GameObject)Instantiate(Resources.Load("EnemyMessage"));
         newMessage.GetComponentInChildren<Text>().text = enemyMessage;
         newMessage.transform.SetParent(matchMessages.transform, false);
@@ -128,16 +128,7 @@ public class MessageBehaviors : MonoBehaviour
     }
 
 
-    public enum MessageType
-    {
-        Engage,
-        PlayerWin,
-        PlayerLoss,
-        PlayerRoundWin,
-        PlayerRoundLoss,
-        Tie,
-        Converse
-    }
+    
 }
 
 
