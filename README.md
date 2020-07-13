@@ -7,6 +7,7 @@ The player uses a rock-paper-scissors system consisting of three types of memes.
 [![Meme Messenger Gameplay](http://img.youtube.com/vi/1Cza3u8BV10/0.jpg)](https://www.youtube.com/watch?v=1Cza3u8BV10 "Meme Messenger Gameplay")
 
 ## Credits
+Created by Dream Meme Team during VGDC Spring Game jam 2020.
 * Joseph Dasilva - Programming, UI
 * Will Carpenter - Programming, Data Input
 * Bailey Atwood - Music, Dialogue, Visual Art
