@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 4bb26922d14131e4cae2a9d53ae5fffd
+  - enabled: 1
     path: Assets/Scenes/OpenChats.unity
     guid: c1f4b089e0295664fa84e322718e3214
   m_configObjects: {}
